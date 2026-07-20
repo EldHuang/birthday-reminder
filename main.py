@@ -6,7 +6,6 @@ from io import StringIO
 # ====================== CONSTANTS ====================== #
 
 FOLDER_PATH = Path("./letter_templates")
-BIRTHDAY_CSV = "./birthdays.csv"
 
 MY_EMAIL = os.environ.get("MY_EMAIL")
 TO_EMAIL = os.environ.get("TO_EMAIL")
