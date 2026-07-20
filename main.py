@@ -1,6 +1,7 @@
 import pandas, smtplib, random, os
 from pathlib import Path
 import datetime as dt
+from io import StringIO
 
 # ====================== CONSTANTS ====================== #
 
@@ -14,6 +15,8 @@ MY_EMAIL = os.environ.get("MY_EMAIL")
 TO_EMAIL = os.environ.get("TO_EMAIL")
 MY_PASSWORD = os.environ.get("MY_PASSWORD")
 
+birthdays_csv = os.environ["BIRTHDAYS_CSV"]
+
 now = dt.datetime.now()
 year = now.year
 month = now.month
@@ -21,7 +24,7 @@ day = now.day
 
 # ====================== READ BIRTHDAYS ====================== #
 
-birthday_list = pandas.DataFrame(pandas.read_csv(BIRTHDAY_CSV))
+birthday_list = pandas.DataFrame(pandas.read_csv(SringIO(Birthdays_csv)
 birthday_list = birthday_list.to_dict("records")
 
 # ====================== RANDOM LETTER ====================== #
