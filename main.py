@@ -8,13 +8,9 @@ from io import StringIO
 FOLDER_PATH = Path("./letter_templates")
 BIRTHDAY_CSV = "./birthdays.csv"
 
-MY_EMAIL = "myemail@gmail.com"
-TO_EMAIL = "to_email@gmail.com"
-MY_PASSWORD = "mysecretpassword"
 MY_EMAIL = os.environ.get("MY_EMAIL")
 TO_EMAIL = os.environ.get("TO_EMAIL")
 MY_PASSWORD = os.environ.get("MY_PASSWORD")
-
 birthdays_csv = os.environ["BIRTHDAYS_CSV"]
 
 now = dt.datetime.now()
@@ -24,7 +20,7 @@ day = now.day
 
 # ====================== READ BIRTHDAYS ====================== #
 
-birthday_list = pandas.DataFrame(pandas.read_csv(SringIO(Birthdays_csv)
+birthday_list = pandas.read_csv(SringIO(birthdays_csv))
 birthday_list = birthday_list.to_dict("records")
 
 # ====================== RANDOM LETTER ====================== #
@@ -47,10 +43,10 @@ for person in birthday_list:
                 connection.sendmail(
                     from_addr=MY_EMAIL,
                     to_addrs=TO_EMAIL,
-                    msg=f"Subject:Reminder: {person["name"]}'s Birthday!\n\n"
-                        f"Hey! Don't forget, today is {person["name"]}'s Birthday!\n"
-                        f"{person["name"]}'s Email: {person["email"]}\n"
-                        f"{person["name"]}'s New Age: {year - person['year']}\n"
-                        f"{person["name"]}'s Birthday: {month}/{day}/{year}\n"
+                    msg=f"Subject:Reminder: {person['name']}'s Birthday!\n\n"
+                        f"Hey! Don't forget, today is {person['name']}'s Birthday!\n"
+                        f"{person['name']}'s Email: {person['email']}\n"
+                        f"{person['name']}'s New Age: {year - person['year']}\n"
+                        f"{person['name']}'s Birthday: {month}/{day}/{year}\n"
                 )
 
